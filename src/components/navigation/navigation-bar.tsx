@@ -9,7 +9,7 @@ const NavigationBar = () => {
   console.log("pathname ===>", pathname);
   return (
     <>
-      <nav className="flex gap-14 text-xl uppercase drop-shadow-md">
+      <nav className="flex gap-14 text-3xl uppercase drop-shadow-md">
         <Link
           href="/"
           className={`${

@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${degular.variable} antialiased`}>
+      <body className={`${degular.variable} antialiased scrollbar-hide`}>
         <Navigation />
         {children}
         <Footer />

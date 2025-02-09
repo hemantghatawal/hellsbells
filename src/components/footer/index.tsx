@@ -7,26 +7,26 @@ const Footer = () => {
     <div className="font-degular relative bottom-5">
       <MapDirections />
       {/* absolute inset-x-0 bottom-0 */}
-      <footer className="flex bg-primaryColor text-white ">
-        <div className="flex flex-col justify-between lg:w-[500px] lg:px-10 md:px-5 pt-16 pb-5">
-          <div className="ml-5">
+      <footer className="flex bg-primaryColor text-white h-[600px] pt-10">
+        <div className="flex flex-col justify-between lg:w-[700px] lg:px-10 md:px-5 pt-16 pb-5">
+          <div className="ml-10">
             <Image
               src="/whitelogo.svg"
               alt="whitelogo logo"
-              width={180}
+              width={360}
               height={38}
               priority
             />
-            <p className="text-sm mt-5">
+            <p className="mt-5 font-light">
               JAIPUR , GOA , ORLANDO, <br /> SEOUL ,TOKYO , NEW YOURK
             </p>
           </div>
 
-          <p className="mt-10">
+          <p className="text-2xl mb-6">
             ©2021 - HELLS BELLS STUDIO MUSIC GROUP COMPANY
           </p>
         </div>
-        <div className="flex flex-wrap lg:gap-20 md:gap-10 sm:gap-5 lg:p-20 md:p-5 md:pt-10  md:mt-8 sm:mt-10">
+        <div className="flex flex-wrap gap-5 md:gap-10 lg:gap-20 p-5 lg:p-15 pt-10 md:mt-8 mt-10 text-4xl uppercase font-thin leading-normal">
           <ul>
             <li>Services</li>
             <li>About</li>
