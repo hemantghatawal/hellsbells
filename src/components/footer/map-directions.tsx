@@ -15,8 +15,8 @@ const MapDirections = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className='"w-full lg:w-[25%] p-6 bg-grayLight pt-20 pr-5 pb-6 pl-24'>
-          <p className="text-grey uppercase">Studio:</p>
+        <div className='"w-full lg:w-[25%] bg-grayLight pt-20  pb-6 lg:p-16'>
+          <p className="text-gray-500 uppercase">Studio:</p>
           <p>
             Plt.no. 448, Niwaru Rd, Ganesh Nagar <br /> Vistar, Harnathapura,
             Jhotwara, Jaipur, <br /> Rajasthan 302012

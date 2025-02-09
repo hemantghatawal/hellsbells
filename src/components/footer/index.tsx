@@ -4,26 +4,29 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="font-degular ">
+    <div className="font-degular relative bottom-5">
       <MapDirections />
       {/* absolute inset-x-0 bottom-0 */}
-      <footer className="flex bg-primaryColor text-white">
-        <div className="lg:w-[500px]p-6">
-          <Image
-            className="ml-10"
-            src="/whitelogo.svg"
-            alt="whitelogo logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <p className="text-sm">
-            JAIPUR , GOA , ORLANDO, <br /> SEOUL ,TOKYO , NEW YOURK
-          </p>
+      <footer className="flex bg-primaryColor text-white ">
+        <div className="flex flex-col justify-between lg:w-[500px] lg:px-10 md:px-5 pt-16 pb-5">
+          <div className="ml-5">
+            <Image
+              src="/whitelogo.svg"
+              alt="whitelogo logo"
+              width={180}
+              height={38}
+              priority
+            />
+            <p className="text-sm mt-5">
+              JAIPUR , GOA , ORLANDO, <br /> SEOUL ,TOKYO , NEW YOURK
+            </p>
+          </div>
 
-          <p>©2021 - HELLS BELLS STUDIO MUSIC GROUP COMPANY</p>
+          <p className="mt-10">
+            ©2021 - HELLS BELLS STUDIO MUSIC GROUP COMPANY
+          </p>
         </div>
-        <div className="flex flex-wrap gap-20 p-20">
+        <div className="flex flex-wrap lg:gap-20 md:gap-10 sm:gap-5 lg:p-20 md:p-5 md:pt-10  md:mt-8 sm:mt-10">
           <ul>
             <li>Services</li>
             <li>About</li>
