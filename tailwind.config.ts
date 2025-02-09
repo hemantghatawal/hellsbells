@@ -11,6 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        grayLight: "var(--gray-light)",
+        primaryColor: "var(--primary-color)"
+      },
+      fontFamily: {
+        degular: ["var(--font-degular)", "sans-serif"], // Set Degular as the main font
       },
     },
   },
