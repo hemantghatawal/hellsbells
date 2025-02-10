@@ -17,12 +17,12 @@ const Footer = () => {
               height={38}
               priority
             />
-            <p className="mt-5 font-light">
-              JAIPUR , GOA , ORLANDO, <br /> SEOUL ,TOKYO , NEW YOURK
+            <p className="mt-5 font-thin">
+              JAIPUR , GOA , ORLANDO, <br /> SEOUL ,TOKYO , NEW YORK
             </p>
           </div>
 
-          <p className="text-2xl mb-6">
+          <p className="text-2xl mb-6 font-thin">
             ©2021 - HELLS BELLS STUDIO MUSIC GROUP COMPANY
           </p>
         </div>

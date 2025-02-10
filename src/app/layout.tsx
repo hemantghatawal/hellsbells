@@ -3,6 +3,7 @@ import "./globals.css";
 import Navigation from "@/components/navigation";
 import localFont from "next/font/local";
 import Footer from "@/components/footer";
+import ScrollToTop from "@/components/navigation/scrollToTop";
 
 const degular = localFont({
   src: "./DegularVariable.ttf",
@@ -22,10 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${degular.variable} antialiased scrollbar-hide`}>
+    <html lang="en" className="scrollbar-hidden">
+      <head>
+        <link rel="icon" href="/riffwavesstudiologo.svg" sizes="any" />
+      </head>
+      <body className={`${degular.variable} antialiased`}>
         <Navigation />
         {children}
+        <ScrollToTop />
         <Footer />
       </body>
     </html>
