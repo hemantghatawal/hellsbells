@@ -12,11 +12,11 @@ const degular = localFont({
   style: "normal",
 });
 
-const degular = localFont({
-  src: "../fonts/DegularVariable.ttf",
-  variable: "--font-degular",
-  weight: "100 900",
-  style: "normal",
+const beni = localFont({
+  src: "../fonts/BeniBold.woff2",
+  variable: "--font-beni",
+  weight: "500 900",
+  style: "bold",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/riffwavesstudiologo.svg" sizes="any" />
       </head>
-      <body className={`${degular.variable} antialiased`}>
+      <body className={`${degular.variable} ${beni.variable} antialiased`}>
         <Navigation />
         {children}
         <ScrollToTop />

@@ -9,10 +9,10 @@ const Navigation = () => {
       className={`flex flex-wrap justify-between items-center m-7 font-degular`}
     >
       <Image
-        className="ml-10"
+        className="ml-14"
         src="/riffwavesstudio.svg"
         alt="riffwavesstudio logo"
-        width={180}
+        width={200}
         height={38}
         priority
       />

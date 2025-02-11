@@ -16,6 +16,7 @@ export default {
       },
       fontFamily: {
         degular: ["var(--font-degular)", "sans-serif"], // Set Degular as the main font
+        beni: ["var(--font-beni)", "sans-serif"], // Set Degular as the main font
       },
     },
   },
