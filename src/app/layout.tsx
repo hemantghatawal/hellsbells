@@ -6,9 +6,16 @@ import Footer from "@/components/footer";
 import ScrollToTop from "@/components/navigation/scrollToTop";
 
 const degular = localFont({
-  src: "./DegularVariable.ttf",
+  src: "../fonts/DegularVariable.ttf",
   variable: "--font-degular",
-  weight: "100 900", // Adjust if needed
+  weight: "100 900",
+  style: "normal",
+});
+
+const degular = localFont({
+  src: "../fonts/DegularVariable.ttf",
+  variable: "--font-degular",
+  weight: "100 900",
   style: "normal",
 });
 
