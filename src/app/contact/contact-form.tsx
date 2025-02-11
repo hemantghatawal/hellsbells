@@ -21,7 +21,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="p-20 mx-auto p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-2xl font-normal">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-3xl font-normal font-degular">
         {/* Name and Phone fields */}
         <div className="flex items-center gap-4">
           <label
@@ -40,10 +40,7 @@ const ContactForm = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <label
-            htmlFor="phone"
-            className=" uppercase whitespace-nowrap min-w-[80px]"
-          >
+          <label htmlFor="phone" className=" uppercase whitespace-nowrap ">
             Phone No.
           </label>
           <input
@@ -77,10 +74,7 @@ const ContactForm = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <label
-            htmlFor="location"
-            className=" uppercase whitespace-nowrap min-w-[80px]"
-          >
+          <label htmlFor="location" className=" uppercase whitespace-nowrap">
             Location
           </label>
           <input
@@ -137,17 +131,19 @@ const ContactForm = () => {
       </div>
 
       {/* Newsletter checkbox */}
-      <div className="mt-6 ml-[220px]">
+      <div className="mt-6">
         <label className="flex items-center gap-2">
           <input
             type="checkbox"
-            className="w-4 h-4 border-gray-300 rounded"
+            className=" w-4 h-4 border-gray-300"
             checked={formData.newsletter}
             onChange={(e) =>
               setFormData({ ...formData, newsletter: e.target.checked })
             }
           />
-          <span className="">Sign me in for latest news, events & more</span>
+          <span className="font-degular text-lg">
+            Sign me in for latest news, events & more
+          </span>
         </label>
       </div>
 
@@ -155,7 +151,7 @@ const ContactForm = () => {
       <div className="mt-8 flex justify-end">
         <button
           type="submit"
-          className="px-12 py-3 bg-[#F26334] hover:bg-[#e05626] text-white text-xl transition-colors"
+          className="px-24 py-3 bg-[#F26334] hover:bg-[#e05626] font-degular text-white font-semibold text-5xl transition-colors"
         >
           Submit
         </button>
