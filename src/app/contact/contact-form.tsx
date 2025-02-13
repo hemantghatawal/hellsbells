@@ -128,7 +128,7 @@ const ContactForm = () => {
             }
           />
         </div>
-      </div>
+      </div>  
 
       {/* Newsletter checkbox */}
       <div className="mt-6">

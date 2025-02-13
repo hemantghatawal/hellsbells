@@ -7,7 +7,7 @@ const ContactPage = () => {
     <>
       <main className="flex flex-wrap m-20 mt-36">
         <div className="w-[50%]">
-          <h1 className="font-beni text-[425px] leading-[0.7]">
+          <h1 className="font-beni uppercase text-[425px] leading-[0.7]">
             Let&rsquo;s
             <br />
             link up
