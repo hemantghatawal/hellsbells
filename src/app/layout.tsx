@@ -4,6 +4,7 @@ import Navigation from "@/components/navigation";
 import localFont from "next/font/local";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/navigation/scrollToTop";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const degular = localFont({
   src: "../fonts/DegularVariable.ttf",
@@ -35,10 +36,17 @@ export default function RootLayout({
         <link rel="icon" href="/riffwavesstudiologo.svg" sizes="any" />
       </head>
       <body className={`${degular.variable} ${beni.variable} antialiased`}>
-        <Navigation />
-        {children}
-        <ScrollToTop />
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navigation />
+          {children}
+          <ScrollToTop />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
