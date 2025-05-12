@@ -1,8 +1,10 @@
 "use client";
-
 import { useState } from "react";
+import { toast } from "sonner";
+import Loading from "./loading";
 
 const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -10,17 +12,27 @@ const ContactForm = () => {
     location: "",
     company: "",
     project: "",
+    project2: "",
     newsletter: false,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    // Simulating API call delay
+    setTimeout(() => {
+      setLoading(false);
+      toast("Success!", {
+        description: "Form Submitted Successfully!",
+      });
+    }, 2000); // 2-second delay 
     // Handle form submission
     console.log(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-20 mx-auto p-6">
+    <form onSubmit={handleSubmit} className="p-20 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-3xl font-normal font-degular">
         {/* Name and Phone fields */}
         <div className="flex items-center gap-4">
@@ -122,13 +134,13 @@ const ContactForm = () => {
           <input
             id="project2"
             className="w-full border-b border-gray-300 focus:border-gray-900 outline-none py-1 resize-none"
-            value={formData.project}
+            value={formData.project2}
             onChange={(e) =>
-              setFormData({ ...formData, project: e.target.value })
+              setFormData({ ...formData, project2: e.target.value })
             }
           />
         </div>
-      </div>  
+      </div>
 
       {/* Newsletter checkbox */}
       <div className="mt-6">
@@ -153,6 +165,7 @@ const ContactForm = () => {
           type="submit"
           className="px-24 py-3 bg-[#F26334] hover:bg-[#e05626] font-degular text-white font-semibold text-5xl transition-colors"
         >
+          {loading ? <Loading /> : ""}
           Submit
         </button>
       </div>

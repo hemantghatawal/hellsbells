@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/navigation/scrollToTop";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const degular = localFont({
   src: "../fonts/DegularVariable.ttf",
@@ -44,6 +45,7 @@ export default function RootLayout({
         >
           <Navigation />
           {children}
+          <Toaster />
           <ScrollToTop />
           <Footer />
         </ThemeProvider>
