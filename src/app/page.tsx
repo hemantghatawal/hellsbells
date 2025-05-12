@@ -1,57 +1,159 @@
+"use client";
 import Image from "next/image";
+import ArtistsHeading from "./artists-heading";
+import ArtistsCarousel from "./artists-carousel";
+import Link from "next/link";
+import ParallaxSection from "./parallex-section";
 
 export default function Home() {
   return (
     <>
-    
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Hero section */}
+        <div className="flex-1 flex flex-col justify-end pb-8 px-4 md:px-8">
+          <ArtistsHeading />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="max-w-3xl mt-4 mb-8">
+            <p className="text-sm md:text-base uppercase tracking-wider">
+              HELLS BELLS GROUP IS NOW A FULL-STACK MUSIC COMPANY WITH
+              DISTRIBUTION, RECORD LABEL, PUBLISHING, AND CATALOG DIVISIONS.
+            </p>
+            <p className="text-sm md:text-base uppercase tracking-wider mt-2">
+              [AS WE GROW, WE REMAIN SHAMELESSLY PASSIONATE ABOUT CREATORS,
+              THEIR PROJECTS, AND THEIR VOICES]
+            </p>
+          </div>
+
+          <div className="self-end text-xl font-bold">(1:9/21)</div>
         </div>
-      </main>
-    </div>
+
+        {/* Carousel section */}
+        <div className="h-72 md:h-96">
+          <ArtistsCarousel />
+        </div>
+      </div>
+      <div className="min-h-screen bg-black text-white">
+        {/* Artist listings in three columns */}
+        <div className="grid grid-cols-3 px-10 py-6">
+          {/* Left column */}
+          <div className="flex flex-col border-t border-neutral-800">
+            {[
+              "ANUEL AA",
+              "DADDY YANKEE",
+              "DE LA GHETTO",
+              "FLOW LA MOVIE",
+              "FUERZA REGIDA",
+              "GIANNI & KYLE",
+            ].map((artist) => (
+              <div key={artist} className="py-3 border-b border-neutral-800">
+                {artist}
+              </div>
+            ))}
+          </div>
+
+          {/* Middle column */}
+          <div className="flex flex-col border-t border-neutral-800">
+            {[
+              "HAZE",
+              "JASON DERULO",
+              "LIL MOSEY",
+              "LUNY TUNES",
+              "MARCA REGISTRADA",
+              "MONTE BOOKER",
+            ].map((artist) => (
+              <div key={artist} className="py-3 border-b border-neutral-800">
+                {artist}
+              </div>
+            ))}
+          </div>
+
+          {/* Right column */}
+          <div className="flex flex-col border-t border-neutral-800">
+            {[
+              "NATANAEL CANO",
+              "NENGO FLOW",
+              "SEAN KINGSTON",
+              "SY ARI DA KID",
+              "T.I.",
+              "YE ALI",
+            ].map((artist) => (
+              <div key={artist} className="py-3 border-b border-neutral-800">
+                {artist}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Main content section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 px-10">
+          {/* Left section with big text */}
+          <div className="flex items-center">
+            <h1 className="text-8xl font-extrabold leading-none tracking-tighter">
+              SUBMIT
+              <br />
+              YOUR
+              <br />
+              MUSIC
+            </h1>
+          </div>
+
+          {/* Middle section with purple image */}
+          <div className="relative">
+            <Image
+              src="/img/services-main.png"
+              alt="Music visual"
+              width={400}
+              height={400}
+              className="object-cover w-full h-full"
+            />
+          </div>
+
+          {/* Right section with "Jamming to bang" text and concert image */}
+          <div className="relative flex flex-col">
+            <div className="text-right italic text-4xl font-serif mb-4 pt-4">
+              Jamming
+              <br />
+              to bang
+            </div>
+            <div className="flex-grow relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+              <Image
+                src="/placeholder.svg?height=400&width=300"
+                alt="Concert silhouette"
+                width={300}
+                height={400}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Submit button */}
+        <div className="flex justify-center mt-6 mb-12">
+          <Link
+            href="#"
+            className="bg-[#F26B34] text-white font-medium py-3 px-16 text-xl hover:bg-[#e05a25] transition-colors"
+          >
+            Submit
+          </Link>
+        </div>
+      </div>
+      <div>
+        <ParallaxSection />
+
+        {/* Additional content to enable scrolling */}
+        <section className="h-screen bg-neutral-100 flex flex-col items-center justify-center p-8">
+          <h2 className="text-4xl font-bold mb-6">Join Our Community</h2>
+          <p className="text-xl max-w-2xl text-center mb-8">
+            Be part of something extraordinary. Our community is growing every
+            day with people who share the same vision.
+          </p>
+          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-md transition-colors">
+            Join us
+          </button>
+        </section>
+      </div>
     </>
   );
 }
