@@ -234,14 +234,14 @@ export default function Home() {
       {/* Latest Releases */}
       <section
         ref={parallaxSectionRef}
-        className="bg-black text-white pt-60 pb-16 relative overflow-hidden"
+        className="bg-black text-white pt-[600px] pb-16 relative overflow-hidden"
       >
         {/* Outline-only text background */}
         <div className="absolute top-0 w-screen flex items-start justify-center overflow-hidden">
           <h3
             ref={parallaxTextRef}
-            className="text-[350px] opacity-50 whitespace-nowrap font-black leading-none uppercase tracking-tighter text-transparent bg-clip-text bg-black stroke-white"
-            style={{ WebkitTextStroke: "1px white", letterSpacing: "-0.05em" }}
+            className="text-[728px] font-beni opacity-50 whitespace-nowrap font-black leading-none uppercase text-transparent bg-clip-text bg-black stroke-white"
+            style={{ WebkitTextStroke: "1px white" }}
           >
             FRESH NEW
           </h3>
@@ -257,7 +257,8 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          <h2 className="font-beni w-full text-[21.5vw] absolute -top-16 left-[58%] -translate-x-1/2 font-black leading-none uppercase text-shadow-md">
+          {/* -top-52 */}
+          <h2 className="font-beni w-full text-[21.5vw] absolute -top-72 left-[58%] -translate-x-1/2 font-black leading-none uppercase text-shadow-md">
             LATEST RELEASES
           </h2>
         </div>
@@ -367,14 +368,14 @@ export default function Home() {
       {/* Become One Of Us */}
       <section
         ref={secondParallaxSectionRef}
-        className="bg-black text-white pt-60 relative overflow-hidden"
+        className="bg-black text-white pt-[600px] relative overflow-hidden"
       >
         {/* Outline-only text background */}
         <div className="absolute top-0 w-screen flex items-start justify-center pt-10 overflow-hidden">
           <h3
             ref={secondParallaxTextRef}
-            className="text-[350px] opacity-50 whitespace-nowrap font-black leading-none uppercase tracking-tighter text-transparent bg-clip-text bg-black stroke-white"
-            style={{ WebkitTextStroke: "1px white", letterSpacing: "-0.05em" }}
+            className=" font-beni text-[1000px] opacity-50 whitespace-nowrap font-black leading-none uppercase text-transparent bg-clip-text bg-black stroke-white"
+            style={{ WebkitTextStroke: "1px white" }}
           >
             01 of us
           </h3>
@@ -390,14 +391,20 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          <h2 className="absolute -top-16 left-[50%] -translate-x-1/2 text-[150px] font-black leading-none uppercase tracking-tighter whitespace-nowrap text-shadow-md">
+          <h2 className="absolute font-beni -top-72 left-[50%] -translate-x-1/2 text-[430px] font-black leading-none uppercase whitespace-nowrap text-shadow-md">
             Become one of us
           </h2>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex justify-between w-[70%] items-center z-10">
-          <p className="text-4xl font-bold">Stand Strong with the Elementals</p>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 uppercase font-bold">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex justify-between w-[70%]  z-10 pb-16">
+          <p className="text-6xl font-footlight">
+            Stand Strong with the Elementals
+          </p>
+          {/* <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 uppercase font-bold"></button> */}
+          <button
+            type="submit"
+            className="px-24 py-3 bg-[#F26334] hover:bg-[#e05626] font-degular text-white font-semibold text-5xl transition-colors"
+          >
             Join Us
           </button>
         </div>
