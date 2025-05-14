@@ -21,6 +21,13 @@ const beni = localFont({
   style: "bold",
 });
 
+const footlight = localFont({
+  src: "../fonts/FootlightMTProLight.otf",
+  variable: "--font-footlight",
+  weight: "100",
+  style: "normal",
+});
+
 export const metadata: Metadata = {
   title: "Hells Bells",
   description: "The Musical keep you humming",
@@ -36,10 +43,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/riffwavesstudiologo.svg" sizes="any" />
       </head>
-      <body className={`${degular.variable} ${beni.variable} antialiased`}>
+      <body
+        className={`${degular.variable} ${beni.variable} ${footlight.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

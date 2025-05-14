@@ -17,6 +17,10 @@
   line-height: -0.5;
 }
 
+h1{
+  font-family: --font;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .scrollbar-hidden::-webkit-scrollbar {

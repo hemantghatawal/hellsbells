@@ -1,159 +1,407 @@
 "use client";
+
+import ImageCarousel from "@/components/homepage/image-carousel";
 import Image from "next/image";
-import ArtistsHeading from "./artists-heading";
-import ArtistsCarousel from "./artists-carousel";
 import Link from "next/link";
-import ParallaxSection from "./parallex-section";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
+  const handleMouseMove = (e: React.MouseEvent<HTMLHeadingElement>) => {
+    const heading = e.currentTarget;
+    const rect = heading.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+
+    const moveX = (x / rect.width - 0.5) * -50;
+
+    heading.style.transform = `translateX(${moveX}px)`;
+    heading.style.transition = "transform 0.3s ease";
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLHeadingElement>) => {
+    e.currentTarget.style.transform = "translateX(0)";
+  };
+
+  const parallaxTextRef = useRef<HTMLHeadingElement>(null);
+  const parallaxSectionRef = useRef<HTMLElement>(null);
+
+  const secondParallaxTextRef = useRef<HTMLHeadingElement>(null);
+  const secondParallaxSectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxTextRef.current && parallaxSectionRef.current) {
+        const rect = parallaxSectionRef.current.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const scrollProgress = Math.min(
+            Math.max(0, (window.innerHeight - rect.top) / rect.height),
+            1
+          );
+          const maxMove = 200;
+          const offset = maxMove * (0.5 - scrollProgress);
+          parallaxTextRef.current.style.transform = `translateY(${offset}px)`;
+        }
+      }
+
+      if (secondParallaxTextRef.current && secondParallaxSectionRef.current) {
+        const rect = secondParallaxSectionRef.current.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const scrollProgress = Math.min(
+            Math.max(0, (window.innerHeight - rect.top) / rect.height),
+            1
+          );
+
+          const maxMove = 200;
+          const offset = maxMove * (0.5 - scrollProgress);
+
+          secondParallaxTextRef.current.style.transform = `translateY(${offset}px)`;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <>
-      {/* Content */}
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Hero section */}
-        <div className="flex-1 flex flex-col justify-end pb-8 px-4 md:px-8">
-          <ArtistsHeading />
-
-          <div className="max-w-3xl mt-4 mb-8">
-            <p className="text-sm md:text-base uppercase tracking-wider">
-              HELLS BELLS GROUP IS NOW A FULL-STACK MUSIC COMPANY WITH
-              DISTRIBUTION, RECORD LABEL, PUBLISHING, AND CATALOG DIVISIONS.
-            </p>
-            <p className="text-sm md:text-base uppercase tracking-wider mt-2">
-              [AS WE GROW, WE REMAIN SHAMELESSLY PASSIONATE ABOUT CREATORS,
-              THEIR PROJECTS, AND THEIR VOICES]
-            </p>
-          </div>
-
-          <div className="self-end text-xl font-bold">(1:9/21)</div>
+    <main className="min-h-screen">
+      {/* Artists/Creators Section */}
+      <section className="relative py-10 px-6 h-[800px] overflow-hidden">
+        <div className="absolute inset-0 -z-10 ">
+          <Image
+            src="/img/homepage/main-bg.png"
+            alt="music"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
-
-        {/* Carousel section */}
-        <div className="h-72 md:h-96">
-          <ArtistsCarousel />
+      </section>
+      <div className="relative bg-black text-white text-center flex justify-center flex-col items-center pb-20">
+        <h1
+          className="text-[21.5vw] font-black font-beni leading-none uppercase p-0 m-0 -mt-32 cursor-default overflow-visible"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          ARTISTS / CREATORS
+        </h1>
+        <p className="max-w-8xl text-3xl mt-2 font-degular w-full text-center uppercase">
+          Hells bells Group is now a full- stack music company with
+          distribution, record label, publishing, and catalog divisions <br />
+          [as we grow, we remain shamelessly passionate about creators, their
+          projects, and their voices]
+        </p>
+        <div className="absolute font-degular bottom-6 right-6 text-4xl font-footlight">
+          (1-9/21)
         </div>
       </div>
-      <div className="min-h-screen bg-black text-white">
-        {/* Artist listings in three columns */}
-        <div className="grid grid-cols-3 px-10 py-6">
-          {/* Left column */}
-          <div className="flex flex-col border-t border-neutral-800">
-            {[
-              "ANUEL AA",
-              "DADDY YANKEE",
-              "DE LA GHETTO",
-              "FLOW LA MOVIE",
-              "FUERZA REGIDA",
-              "GIANNI & KYLE",
-            ].map((artist) => (
-              <div key={artist} className="py-3 border-b border-neutral-800">
-                {artist}
-              </div>
-            ))}
-          </div>
+      {/* Artist Grid */}
+      <ImageCarousel />
+      {/* <section className="bg-black relative border-zinc-800 overflow-hidden">
+        <div className="grid grid-cols-4 gap-2 -ml-[12.5%] -mr-[12.5%] w-[125%]">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="aspect-[3/4] relative">
+              <Image
+                src={"/img/demo.jpg"}
+                alt={`Artist ${i}`}
+                fill
+                sizes={i === 1 || i === 4 ? "37.5vw" : "25vw"}
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </section> */}
+      {/* Links Grid */}
+      <section className="bg-black text-white grid grid-cols-1 py-10 text-2xl font-degular">
+        <div className="px-6 w-full">
+          {/* Add border-t here */}
+          <div className="grid grid-cols-3 gap-x-12 gap-y-6 border-zinc-800 pt-2">
+            {/* Column 1 */}
+            <div className="flex flex-col gap-6">
+              {[
+                "Anuel AA",
+                "Daddy Yankee",
+                "De La Ghetto",
+                "Flow La Movie",
+                "Fuerza Regida",
+                "Gianni & Kyle",
+              ].map((name, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  className="hover:text-orange-500 uppercase border-b pb-1 border-zinc-800"
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
 
-          {/* Middle column */}
-          <div className="flex flex-col border-t border-neutral-800">
-            {[
-              "HAZE",
-              "JASON DERULO",
-              "LIL MOSEY",
-              "LUNY TUNES",
-              "MARCA REGISTRADA",
-              "MONTE BOOKER",
-            ].map((artist) => (
-              <div key={artist} className="py-3 border-b border-neutral-800">
-                {artist}
-              </div>
-            ))}
-          </div>
+            {/* Column 2 */}
+            <div className="flex flex-col gap-6">
+              {[
+                "Haze",
+                "Jason Derulo",
+                "Lil Mosey",
+                "Luny Tunes",
+                "Marca Registrada",
+                "Monte Booker",
+              ].map((name, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  className="hover:text-orange-500 uppercase border-b pb-1 border-zinc-800"
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
 
-          {/* Right column */}
-          <div className="flex flex-col border-t border-neutral-800">
-            {[
-              "NATANAEL CANO",
-              "NENGO FLOW",
-              "SEAN KINGSTON",
-              "SY ARI DA KID",
-              "T.I.",
-              "YE ALI",
-            ].map((artist) => (
-              <div key={artist} className="py-3 border-b border-neutral-800">
-                {artist}
-              </div>
-            ))}
+            {/* Column 3 */}
+            <div className="flex flex-col gap-6">
+              {[
+                "Natanael Cano",
+                "Ñengo Flow",
+                "Sean Kingston",
+                "Sy Ari Da Kid",
+                "T.I.",
+                "Ye Ali",
+              ].map((name, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  className="hover:text-orange-500 uppercase border-b pb-1 border-zinc-800"
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Main content section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 px-10">
-          {/* Left section with big text */}
-          <div className="flex items-center">
-            <h1 className="text-8xl font-extrabold leading-none tracking-tighter">
-              SUBMIT
-              <br />
-              YOUR
-              <br />
-              MUSIC
-            </h1>
-          </div>
-
-          {/* Middle section with purple image */}
-          <div className="relative">
+      {/* Submit Your Music */}
+      <section className="bg-black grid grid-cols-2 relative py-10">
+        {/* Content container */}
+        <div className="col-span-2 flex justify-end relative">
+          {/* Large image */}
+          <div className="w-1/2 relative aspect-square">
             <Image
-              src="/img/services-main.png"
-              alt="Music visual"
-              width={400}
-              height={400}
-              className="object-cover w-full h-full"
+              src={"/img/homepage/submit-music-1.png"}
+              alt="Submit your music background"
+              fill
+              sizes="50vw"
+              className="object-cover"
             />
           </div>
 
-          {/* Right section with "Jamming to bang" text and concert image */}
-          <div className="relative flex flex-col">
-            <div className="text-right italic text-4xl font-serif mb-4 pt-4">
-              Jamming
-              <br />
-              to bang
-            </div>
-            <div className="flex-grow relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-              <Image
-                src="/placeholder.svg?height=400&width=300"
-                alt="Concert silhouette"
-                width={300}
-                height={400}
-                className="object-cover w-full h-full"
-              />
-            </div>
+          {/* Small image */}
+          <div className="w-1/4 relative aspect-square">
+            <Image
+              src={"/img/homepage/submit-music-2.png"}
+              alt="Submit your music overlay"
+              fill
+              sizes="25vw"
+              className="object-cover"
+            />
           </div>
         </div>
 
-        {/* Submit button */}
-        <div className="flex justify-center mt-6 mb-12">
-          <Link
-            href="#"
-            className="bg-[#F26B34] text-white font-medium py-3 px-16 text-xl hover:bg-[#e05a25] transition-colors"
+        {/* Text overlay */}
+        <div className="absolute left-32 top-10 flex flex-col justify-center items-center z-10">
+          <h2 className="font-beni text-[19.5vw]  font-black leading-[1] uppercase text-center text-white drop-shadow-lg w-[400px]">
+            <div className="flex flex-col leading-none">
+              <span className="mb-[-130px]">SUBMIT</span>
+              <span className="mb-[-130px]">YOUR</span>
+              <span>MUSIC</span>
+            </div>
+          </h2>
+        </div>
+        <div className="">
+          <button
+            type="submit"
+            className="px-24 py-3 bg-[#F26334] hover:bg-[#e05626] font-degular text-white font-semibold text-5xl transition-colors relative top-[-195px] text-2xl left-[920px] font-degular z-10 top-0 mt-8 bg-orange-500 hover:bg-orange-600 text-white px-15 py-3 font-bold"
           >
             Submit
-          </Link>
-        </div>
-      </div>
-      <div>
-        <ParallaxSection />
-
-        {/* Additional content to enable scrolling */}
-        <section className="h-screen bg-neutral-100 flex flex-col items-center justify-center p-8">
-          <h2 className="text-4xl font-bold mb-6">Join Our Community</h2>
-          <p className="text-xl max-w-2xl text-center mb-8">
-            Be part of something extraordinary. Our community is growing every
-            day with people who share the same vision.
-          </p>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-md transition-colors">
-            Join us
           </button>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+      {/* Latest Releases */}
+      <section
+        ref={parallaxSectionRef}
+        className="bg-black text-white pt-60 pb-16 relative overflow-hidden"
+      >
+        {/* Outline-only text background */}
+        <div className="absolute top-0 w-screen flex items-start justify-center overflow-hidden">
+          <h3
+            ref={parallaxTextRef}
+            className="text-[350px] opacity-50 whitespace-nowrap font-black leading-none uppercase tracking-tighter text-transparent bg-clip-text bg-black stroke-white"
+            style={{ WebkitTextStroke: "1px white", letterSpacing: "-0.05em" }}
+          >
+            FRESH NEW
+          </h3>
+        </div>
+
+        <div className="relative z-10">
+          <div className="w-full aspect-[2/1] relative">
+            <Image
+              src={"/img/homepage/latest-releases.png"}
+              alt="Latest release banner"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <h2 className="font-beni w-full text-[21.5vw] absolute -top-16 left-[58%] -translate-x-1/2 font-black leading-none uppercase text-shadow-md">
+            LATEST RELEASES
+          </h2>
+        </div>
+      </section>
+
+      {/* Album Grid */}
+      <section className="bg-black grid grid-cols-2 px-2 gap-2 pb-2">
+        <div className="aspect-square relative">
+          <Image
+            src={"/img/homepage/album-1.png"}
+            alt="CALEB"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="aspect-square relative">
+          <Image
+            src="/img/homepage/album-2.png"
+            alt="MELTING IN HEAT"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+      {/* More Albums */}
+      <section className="bg-black grid grid-cols-2 px-2 gap-2 pb-4">
+        <div className="aspect-square relative">
+          <Image
+            src="/img/homepage/album-3.png"
+            alt="Urban Night"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="aspect-square relative">
+          <Image
+            src="/img/homepage/album-4.png"
+            alt="Light Show"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+      {/* Energy Amplifying */}
+      <section className="bg-black text-white py-16  border-zinc-800">
+        <div className="relative z-10">
+          <div className="w-full aspect-[16/9] relative">
+            <Image
+              src={"/img/demo.jpg"}
+              alt="Latest release banner"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <h2 className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap text-[130px] font-black leading-none uppercase tracking-tighter">
+            ENERGY AMPLIFYING.
+          </h2>
+        </div>
+      </section>
+      {/* Album Grid 2 */}
+      <section className="bg-black grid grid-cols-2 px-2 gap-2 pb-2">
+        <div className="aspect-square relative">
+          <Image
+            src={"/img/homepage/album-5.png"}
+            alt="CALEB"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="aspect-square relative">
+          <Image
+            src="/img/homepage/album-6.png"
+            alt="MELTING IN HEAT"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+      {/* More Albums */}
+      <section className="bg-black grid grid-cols-2 px-2 gap-2 pb-4">
+        <div className="aspect-square relative">
+          <Image
+            src="/img/homepage/album-7.png"
+            alt="Urban Night"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="aspect-square relative">
+          <Image
+            src="/img/homepage/album-8.png"
+            alt="Light Show"
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+      {/* Become One Of Us */}
+      <section
+        ref={secondParallaxSectionRef}
+        className="bg-black text-white pt-60 relative overflow-hidden"
+      >
+        {/* Outline-only text background */}
+        <div className="absolute top-0 w-screen flex items-start justify-center pt-10 overflow-hidden">
+          <h3
+            ref={secondParallaxTextRef}
+            className="text-[350px] opacity-50 whitespace-nowrap font-black leading-none uppercase tracking-tighter text-transparent bg-clip-text bg-black stroke-white"
+            style={{ WebkitTextStroke: "1px white", letterSpacing: "-0.05em" }}
+          >
+            01 of us
+          </h3>
+        </div>
+
+        <div className="relative z-10">
+          <div className="w-full aspect-[16/9] relative">
+            <Image
+              src={"/img/demo.jpg"}
+              alt="Latest release banner"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <h2 className="absolute -top-16 left-[50%] -translate-x-1/2 text-[150px] font-black leading-none uppercase tracking-tighter whitespace-nowrap text-shadow-md">
+            Become one of us
+          </h2>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex justify-between w-[70%] items-center z-10">
+          <p className="text-4xl font-bold">Stand Strong with the Elementals</p>
+          <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 uppercase font-bold">
+            Join Us
+          </button>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -56,6 +56,7 @@ export default {
       fontFamily: {
         degular: ["var(--font-degular)", "sans-serif"],
         beni: ["var(--font-beni)", "sans-serif"],
+        footlight: ["var(--font-footlight)", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
