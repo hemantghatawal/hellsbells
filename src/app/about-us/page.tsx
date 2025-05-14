@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import * as React from "react";
 const AboutUsPage = () => {
-
   return (
     <>
       <div className="h-screen center items-center">
@@ -11,8 +11,8 @@ const AboutUsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <div className="lg:col-span-2">
                 <h1 className="flex items-center place-content-center font-beni uppercase text-[425px] leading-[0.7]">
-                         About us
-                        </h1>
+                  About us
+                </h1>
                 {/* Next: "Add animated text reveal on scroll" */}
 
                 <div className="mb-8">
@@ -25,11 +25,10 @@ const AboutUsPage = () => {
                 {/* Next: "Add a horizontal line separator with animation" */}
 
                 <div className="mt-16">
-                  <img
+                  <Image
                     src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxhdWRpbyUyMHByb2R1Y3Rpb258ZW58MHx8fHwxNzQ3MDY0OTIxfDA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="Person writing in notebook"
                     className="w-full h-auto rounded-md transform transition-transform duration-500 hover:scale-[1.02] shadow-lg"
-                    keywords="audio production, creative work, music studio, notebook, writing"
                   />
                   {/* Next: "Add image gallery of studio equipment" */}
                 </div>

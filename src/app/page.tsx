@@ -306,20 +306,20 @@ export default function Home() {
         </div>
       </section>
       {/* Energy Amplifying */}
-      <section className="bg-black text-white py-16  border-zinc-800">
+      <section className="bg-black text-white py-6 border-zinc-800">
         <div className="relative z-10">
           <div className="w-full aspect-[16/9] relative">
             <Image
-              src={"/img/demo.jpg"}
+              src={"/img/homepage/enery-amplifying.png"}
               alt="Latest release banner"
               fill
               sizes="100vw"
               className="object-cover"
             />
           </div>
-          <h2 className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap text-[130px] font-black leading-none uppercase tracking-tighter">
+          {/* <h2 className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap text-[130px] font-black leading-none uppercase tracking-tighter">
             ENERGY AMPLIFYING.
-          </h2>
+          </h2> */}
         </div>
       </section>
       {/* Album Grid 2 */}
@@ -383,7 +383,7 @@ export default function Home() {
         <div className="relative z-10">
           <div className="w-full aspect-[16/9] relative">
             <Image
-              src={"/img/demo.jpg"}
+              src={"/img/homepage/become-one-of-us.png"}
               alt="Latest release banner"
               fill
               sizes="100vw"

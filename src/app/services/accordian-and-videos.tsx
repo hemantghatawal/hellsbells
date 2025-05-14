@@ -47,7 +47,7 @@ const contentData = [
 ];
 
 const AccordianAndVideos = () => {
-  const [selectedVideo, setSelectedVideo] = React.useState<string>("");
+  const [, setSelectedVideo] = React.useState<string>("");
   const [selectedContent, setSelectedContent] = React.useState<string | null>(
     null
   );
