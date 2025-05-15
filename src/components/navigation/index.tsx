@@ -10,8 +10,8 @@ const Navigation = () => {
     >
       <Image
         className="ml-14"
-        src="/HBS white.png"
-        alt="riffwavesstudio logo"
+        src="/HBS-white.png"
+        alt="Hells Bells Logo"
         width={200}
         height={38}
         priority
