@@ -5,24 +5,24 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="font-degular relative bottom-5">
+    <div className="font-degular relative">
       <MapDirections />
       {/* absolute inset-x-0 bottom-0 */}
       <footer className="flex bg-primaryColor text-white h-[600px] pt-10">
         <div className="flex flex-col justify-between lg:w-[700px] lg:px-10 md:px-5 pt-16 pb-5">
-          <div className="ml-10">
+          <div className="ml-10 pt-[28px]">
             <Image
               src="/HBS-white.png"
               alt="Hells Bells Logo"
-              width={200}
+              width={260}
               height={38}
             />
-            <p className="mt-5 font-thin">
+            <p className="mt-10 font-thin">
               JAIPUR , GOA , ORLANDO, <br /> SEOUL ,TOKYO , NEW YORK
             </p>
           </div>
 
-          <p className="text-2xl mb-6 font-thin">
+          <p className="text-2xl mb-6 ml-12 font-thin">
             ©2021 - HELLS BELLS STUDIO MUSIC GROUP COMPANY
           </p>
         </div>
@@ -52,6 +52,7 @@ const Footer = () => {
           </ul>
         </div>
       </footer>
+      <div className="bg-white w-full h-5"></div>
     </div>
   );
 };

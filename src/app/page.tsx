@@ -1,5 +1,6 @@
 "use client";
 
+import BigImageCarousel from "@/components/homepage/big-image-carousel";
 import ImageCarousel from "@/components/homepage/image-carousel";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,18 +72,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Artists/Creators Section */}
-      <section className="relative py-10 px-6 h-[800px] overflow-hidden">
-        <div className="absolute inset-0 -z-10 ">
-          <Image
-            src="/img/homepage/main-bg.png"
-            alt="music"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority  
-          />
-        </div>
-      </section>
+      <BigImageCarousel />
       <div className="relative bg-black text-white text-center flex justify-center flex-col items-center pb-20">
         <h1
           className="text-[21.5vw] font-black font-beni leading-none uppercase p-0 m-0 -mt-32 cursor-default overflow-visible"

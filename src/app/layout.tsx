@@ -40,9 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scrollbar-hidden">
-      <head>
+      {/* <head>
         <link rel="icon" href="/HBS-W.svg" sizes="any" />
-      </head>
+      </head> */}
       <body
         className={`${degular.variable} ${beni.variable} ${footlight.variable} antialiased`}
       >

@@ -9,39 +9,33 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay, { AutoplayType } from "embla-carousel-autoplay";
 
-export default function ImageCarousel() {
+export default function BigImageCarousel() {
   const [, setIsPaused] = useState(false);
   const autoplayRef = useRef<AutoplayType | null>(null);
 
   const images = [
     {
-      src: "/img/homepage/artist-1.jpg",
+      src: "/img/homepage/main-bg-1.png",
       alt: "Artist 1",
       title: "Creative Vision",
       description: "Exploring new artistic horizons",
     },
     {
-      src: "/img/homepage/artist-2.jpg",
-      alt: "Artist 2",
+      src: "/img/homepage/main-bg-2.jpg",
+      alt: "main-bg 2",
       title: "Urban Expression",
       description: "The beauty of city landscapes",
     },
     {
-      src: "/img/homepage/artist-3.jpg",
-      alt: "Artist 3",
+      src: "/img/homepage/main-bg-3.jpg",
+      alt: "main-bg 3",
       title: "Natural Wonder",
       description: "Capturing earth's raw beauty",
     },
     {
-      src: "/img/homepage/artist-4.png",
-      alt: "Artist 4",
+      src: "/img/homepage/main-bg-4.jpg",
+      alt: "main-bg 4",
       title: "Abstract Thoughts",
-      description: "Beyond conventional perspectives",
-    },
-    {
-      src: "/img/demo.jpg",
-      alt: "Artist 4",
-      title: "The Hind Ka Sitara",
       description: "Beyond conventional perspectives",
     },
   ];
@@ -61,7 +55,7 @@ export default function ImageCarousel() {
   };
 
   return (
-    <section className="bg-black relative border-zinc-800 overflow-hidden py-8">
+    <section className="bg-black relative border-zinc-800 overflow-hidden h-[738px]">
       <Carousel
         opts={{
           align: "start",
@@ -80,24 +74,16 @@ export default function ImageCarousel() {
       >
         <CarouselContent className="-ml-4">
           {images.map((image, index) => (
-            <CarouselItem
-              key={index}
-              className="pl-4 md:basis-1/2 lg:basis-1/4"
-            >
-              <div className="relative aspect-[3/4] overflow-hidden group">
+            <CarouselItem key={index} className="pl-4 basis-full">
+              <div className="relative aspect-[26/10] overflow-hidden group">
                 <Image
-                  src={image.src || "/placeholder.svg"}
+                  src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  sizes="100vw"
                   className="object-cover"
+                  priority
                 />
-                <div className=" font-degular absolute bottom-0 left-0 right-0 bg-black/70 p-4 transform translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0">
-                  <h3 className="text-white font-bold text-lg">
-                    {image.title}
-                  </h3>
-                  <p className="text-white/80 text-sm">{image.description}</p>
-                </div>
               </div>
             </CarouselItem>
           ))}
