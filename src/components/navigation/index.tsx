@@ -10,7 +10,7 @@ const Navigation = () => {
     >
       <Image
         className="ml-14"
-        src="/riffwavesstudio.svg"
+        src="/HBS white.png"
         alt="riffwavesstudio logo"
         width={200}
         height={38}

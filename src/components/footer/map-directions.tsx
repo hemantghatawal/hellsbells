@@ -1,7 +1,12 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const MapDirections = () => {
+  const pathname = usePathname();
+  if (pathname === "/" || pathname === "/services") {
+    return null; // don't show anything
+  }
   return (
     <>
       <div className="flex flex-col lg:flex-row">

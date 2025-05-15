@@ -79,6 +79,7 @@ export default function Home() {
             fill
             sizes="100vw"
             className="object-cover"
+            priority  
           />
         </div>
       </section>

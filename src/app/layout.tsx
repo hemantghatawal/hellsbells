@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scrollbar-hidden">
       <head>
-        <link rel="icon" href="/riffwavesstudiologo.svg" sizes="any" />
+        <link rel="icon" href="/HBS-W.svg" sizes="any" />
       </head>
       <body
         className={`${degular.variable} ${beni.variable} ${footlight.variable} antialiased`}

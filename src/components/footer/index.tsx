@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import MapDirections from "./map-directions";
 import Image from "next/image";
@@ -11,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col justify-between lg:w-[700px] lg:px-10 md:px-5 pt-16 pb-5">
           <div className="ml-10">
             <Image
-              src="/whitelogo.svg"
+              src="/HBS-white.png"
               alt="whitelogo logo"
               width={360}
               height={38}
