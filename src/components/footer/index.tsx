@@ -13,10 +13,9 @@ const Footer = () => {
           <div className="ml-10">
             <Image
               src="/HBS-white.png"
-              alt="whitelogo logo"
-              width={360}
+              alt="Hells Bells Logo"
+              width={200}
               height={38}
-              priority
             />
             <p className="mt-5 font-thin">
               JAIPUR , GOA , ORLANDO, <br /> SEOUL ,TOKYO , NEW YORK
