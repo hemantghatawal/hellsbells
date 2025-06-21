@@ -87,7 +87,7 @@ export default function Home() {
           [as we grow, we remain shamelessly passionate about creators, their
           projects, and their voices]
         </p>
-        <div className="absolute font-degular bottom-6 right-6 text-4xl font-footlight">
+        <div className="absolute bottom-6 right-6 text-4xl font-footlight">
           (1-9/21)
         </div>
       </div>

@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import * as React from "react";
+import AboutUs from "./about-us";
 
 const AboutUsPage = () => {
   return (
     <>
-      <div>
+      {/* <div>
         <Image
           src="/img/about-us.png"
           alt="About Us"
@@ -14,7 +15,8 @@ const AboutUsPage = () => {
           width={2463} // Put your actual image width in px
           height={5320} // Put your actual image height in px
         />
-      </div>
+      </div> */}
+      <AboutUs />
 
       {/*}
       <div className="h-screen center items-center">
