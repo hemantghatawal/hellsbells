@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import NavigationBar from "./navigation-bar";
-import ThemeToggle from "./ThemeToggle";
-import { Separator } from "../ui/separator";
 
 const Navigation = () => {
   return (
