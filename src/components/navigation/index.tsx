@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import NavigationBar from "./navigation-bar";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   return (
@@ -17,6 +18,7 @@ const Navigation = () => {
         priority
       />
       <NavigationBar />
+      <ThemeToggle />
       <div className="flex gap-5 items-center p-15 text-[16px]">
         <div>
           <button>Log In</button>
