@@ -6,10 +6,10 @@ import NavigationBar from "./navigation-bar";
 const Navigation = () => {
   return (
     <section
-      className={`flex flex-wrap justify-between items-center m-7 font-degular`}
+      className={`flex flex-wrap justify-between items-center mt-[66px] mx-[64px] mb-[57px] font-degular`}
     >
       <Image
-        className="ml-14"
+        className=""
         src="/HBS-white.png"
         alt="Hells Bells Logo"
         width={200}
@@ -17,7 +17,7 @@ const Navigation = () => {
         priority
       />
       <NavigationBar />
-      <div className="flex gap-5 items-center p-15 text-sm">
+      <div className="flex gap-5 items-center p-15 text-[16px]">
         <div>
           <button>Log In</button>
         </div>

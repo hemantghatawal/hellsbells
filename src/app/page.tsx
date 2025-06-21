@@ -177,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* Submit Your Music */}
-      <section className="bg-black grid grid-cols-2 relative py-10">
+      <section className="relative bg-black grid grid-cols-2 relative py-10">
         {/* Content container */}
         <div className="col-span-2 flex justify-end relative">
           {/* Large image */}
@@ -213,14 +213,14 @@ export default function Home() {
             </div>
           </h2>
         </div>
-        <div className="">
-          <button
-            type="submit"
-            className="px-24 py-3 bg-[#F26334] hover:bg-[#e05626] font-degular text-white font-semibold text-5xl transition-colors relative top-[-195px] text-2xl left-[920px] font-degular z-10 top-0 mt-8 bg-orange-500 hover:bg-orange-600 text-white px-15 py-3 font-bold"
-          >
-            Submit
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="px-24 py-3 bg-[#F26334] hover:bg-[#e05626] font-degular text-white font-semibold text-5xl transition-colors
+                     text-2xl font-degular bg-orange-500 hover:bg-orange-600 text-white px-15 py-3 font-bold
+                     absolute right-[50%] bottom-[76px] z-10"
+        >
+          Submit
+        </button>
       </section>
       {/* Latest Releases */}
       <section
@@ -246,10 +246,13 @@ export default function Home() {
               fill
               sizes="100vw"
               className="object-cover"
-            />
+            />  
           </div>
           {/* -top-52 */}
-          <h2 className="font-beni w-full text-[21.5vw] absolute -top-72 left-[58%] -translate-x-1/2 font-black leading-none uppercase text-shadow-md">
+          <h2 className="font-beni w-full text-[21.5vw] absolute -top-72 left-1/2 -translate-x-1/2 font-black leading-none uppercase text-shadow-md"
+            // onMouseMove={handleMouseMove}
+            // onMouseLeave={handleMouseLeave}
+          >
             LATEST RELEASES
           </h2>
         </div>

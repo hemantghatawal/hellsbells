@@ -9,42 +9,38 @@ const NavigationBar = () => {
   console.log("pathname ===>", pathname);
   return (
     <>
-      <nav className="flex gap-14 text-3xl uppercase drop-shadow-md">
+      <nav className="flex gap-14 text-[20px] uppercase drop-shadow-md">
         <Link
           href="/"
-          className={`${
-            pathname === "/" ? "underline underline-offset-2 decoration-2" : ""
-          } drop-shadow-lg `}
+          className={`${pathname === "/" ? "underline underline-offset-2 decoration-2" : ""
+            } drop-shadow-lg `}
         >
           Home
         </Link>
         <Link
           href="/services"
-          className={`${
-            pathname === "/services"
-              ? "underline underline-offset-2 decoration-2"
-              : ""
-          } drop-shadow-lg`}
+          className={`${pathname === "/services"
+            ? "underline underline-offset-2 decoration-2"
+            : ""
+            } drop-shadow-lg`}
         >
           Services
         </Link>
         <Link
           href="/about-us"
-          className={`${
-            pathname === "/about-us"
-              ? "underline underline-offset-2 decoration-2"
-              : ""
-          } drop-shadow-lg`}
+          className={`${pathname === "/about-us"
+            ? "underline underline-offset-2 decoration-2"
+            : ""
+            } drop-shadow-lg`}
         >
           About
         </Link>
         <Link
           href="/contact"
-          className={`${
-            pathname === "/contact"
-              ? "underline underline-offset-2 decoration-2"
-              : ""
-          } drop-shadow-lg`}
+          className={`${pathname === "/contact"
+            ? "underline underline-offset-2 decoration-2"
+            : ""
+            } drop-shadow-lg`}
         >
           Contact
         </Link>
